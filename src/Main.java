@@ -1,0 +1,20 @@
+public class Main {
+    public static void main(String[] args) {
+
+        // Задание https://www.examclouds.com/ru/java/java-core-russian/lesson10-tasks
+        // Интерфейсы и перечисления. Задание Интерфейс Printable
+
+        Printable[] wastePaper = {
+                new Book("Старик и море"),
+                new Magazine("Гламур"),
+                new Book("Война и мир"),
+                new Book("Похороните меня за плинтусом"),
+                new Magazine("Плейбой")
+        };
+
+        for (Printable printable : wastePaper) {
+            printable.print();
+            System.out.println(" ");
+        }
+    }
+}
