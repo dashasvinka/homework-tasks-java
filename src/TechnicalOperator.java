@@ -82,9 +82,25 @@ public class TechnicalOperator {
 
     // Задание 1.2.4 https://code.mu/ru/java/tasker/stager/1/2/
     // Дано целое число. Выведите количество цифр в этом числе.
-    public void countNumber (int numberForEdit) {
+    public void countNumber(int numberForEdit) {
         String number = String.valueOf(numberForEdit);
         int numberLength = number.length();
         System.out.println("У числа " + numberForEdit + " присутствует столько чисел: " + numberLength);
+    }
+
+    // Задание 1.3.2 https://code.mu/ru/java/tasker/stager/1/3/
+    // Дана строка. Если в этой строке более одного символа, выведите в консоль предпоследний символ этой строки.
+    public void getPenultimateSymbol(String combinationOfSymbols) {
+        int numberLength = combinationOfSymbols.length();
+        if (numberLength == 1){
+            System.out.println("В строке " + combinationOfSymbols + " только 1 символ");
+        }
+        else if (numberLength == 0){
+            System.out.println("Вы передали пустую строку");
+        }
+        else {
+            String penultimateSymbol = combinationOfSymbols.substring(numberLength - 2, numberLength - 1);
+            System.out.println("В строке " + combinationOfSymbols + " предпоследний символ: " + penultimateSymbol);
+        }
     }
 }
