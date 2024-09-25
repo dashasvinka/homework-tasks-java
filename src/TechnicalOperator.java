@@ -103,4 +103,25 @@ public class TechnicalOperator {
             System.out.println("В строке " + combinationOfSymbols + " предпоследний символ: " + penultimateSymbol);
         }
     }
+
+    // Задание 1.4.3 https://code.mu/ru/java/tasker/stager/1/4/
+    // Дано целое число, содержащее номер минуты от 0 до 60: Определите, в какую четверть часа попадает это значение.
+    public void getQuarterOfAnHour(byte num) {
+
+        if  ((0 <= num) && (num <= 15)) {
+            System.out.println("Попадает в первую четверть часа");
+        }
+        else if ((15 < num) && (num <= 30)) {
+            System.out.println("Попадает во вторую четверть часа");
+        }
+        else if ((30 < num) && (num <= 45)) {
+            System.out.println("Попадает в третью четверть часа");
+        }
+        else if ((45 < num) && (num <= 60)) {
+            System.out.println("Попадает в четвертую четверть часа");
+        }
+        else {
+            System.out.println("Значение за границами интервала от 0 до 60, поэтому не может быть соотнесено с четвертью часа");
+        }
+    }
 }
