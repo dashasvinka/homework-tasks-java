@@ -16,5 +16,11 @@ public class Main {
             printable.print();
             System.out.println(" ");
         }
+
+        // Задача 7 https://tproger.ru/articles/zadachi-po-java-dlya-nachinayushhih
+        // Напишите программу, которая инвертирует массив (меняет порядок элементов на противоположный).
+        String[] seasons  = new String[] {"Winter", "Spring", "Summer", "Autumn"};
+        TechnicalOperator operator = new TechnicalOperator();
+        operator.getFlipArray(seasons);
     }
 }

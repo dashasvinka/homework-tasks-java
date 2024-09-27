@@ -1,3 +1,8 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
 public class TechnicalOperator {
 
     // Задание 1. https://tproger.ru/articles/zadachi-po-java-dlya-nachinayushhih
@@ -58,6 +63,14 @@ public class TechnicalOperator {
                 }
             }
         }
+    }
+
+    // Задание 7. https://tproger.ru/articles/zadachi-po-java-dlya-nachinayushhih
+    // Напишите программу, которая инвертирует массив (меняет порядок элементов на противоположный).
+    public void getFlipArray(String[] needToFlip) {
+        var finalList = Arrays.asList(needToFlip);
+        Collections.reverse(finalList);
+        Arrays.stream(needToFlip).forEach(i -> System.out.println(i));
     }
 
     // Задание 1.2.1 https://code.mu/ru/java/tasker/stager/1/2/
