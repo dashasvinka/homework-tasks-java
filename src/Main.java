@@ -22,5 +22,10 @@ public class Main {
         String[] seasons  = new String[] {"Winter", "Spring", "Summer", "Autumn"};
         TechnicalOperator operator = new TechnicalOperator();
         operator.getFlipArray(seasons);
+
+        // Напишите программу, которая меняет местами элементы одномерного массива из String в обратном порядке.
+        ArrayOperator arrayOperator = new ArrayOperator();
+        String[] people  = new String[] {"Маша", "Паша", "Вика", "Лена", "Гена"};
+        arrayOperator.printFlipArray(people);
     }
 }
