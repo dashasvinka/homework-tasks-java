@@ -27,5 +27,8 @@ public class Main {
         ArrayOperator arrayOperator = new ArrayOperator();
         String[] people  = new String[] {"Маша", "Паша", "Вика", "Лена", "Гена"};
         arrayOperator.printFlipArray(people);
+
+        // Программа получает число n и раздает карты на n игроков (по 5 карт каждому) из рассортированной колоды.
+        arrayOperator.dealingCardsInPoker(5);
     }
 }
