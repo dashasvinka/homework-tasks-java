@@ -11,13 +11,13 @@ public class ArrayOperator {
 
     public void printFlipArray(String[] arrayName) {
         int position = arrayName.length;
-        int result = position/2;
+        int result = position / 2;
         int i = arrayName.length - 1;
         for (int k = 1; k <= result; k++) {
-            var a = arrayName[k-1];
+            var a = arrayName[k - 1];
             var b = arrayName[i];
             arrayName[i] = a;
-            arrayName[k-1] = b;
+            arrayName[k - 1] = b;
             i--;
         }
         for (int l = 0; l < position; l++) {
@@ -29,7 +29,7 @@ public class ArrayOperator {
     // Программа получает число n и раздает карты на n игроков (по 5 карт каждому) из рассортированной колоды.
     // https://vertex-academy.com/tutorials/ru/razdacha-kart-v-pokere-java/
     public void dealingCardsInPoker(int peopleCount) {
-        String[] pokerCards  = new String[] {
+        String[] pokerCards = new String[]{
                 "Пики туз",
                 "Пики 2",
                 "Пики 3",
@@ -92,13 +92,15 @@ public class ArrayOperator {
         int cardPosition = 0;
         if ((peopleCount <= 0) || (peopleCount > 10)) {
             System.out.println("Указано недопустимое количество игроков");
-        }
-        else {
-        for (int k = 1; k <= peopleCount; k++) {
-            System.out.println("Выдаем игроку №"+ k + " следующий набор карт:");
-            System.out.println(shuffledCards[cardPosition] + " " + shuffledCards[cardPosition + 1] + " " + shuffledCards[cardPosition + 2] + " " + shuffledCards[cardPosition + 3] + " " + shuffledCards[cardPosition + 4]);
-            cardPosition = cardPosition + 5;
-        }
+        } else {
+            for (int k = 1; k <= peopleCount; k++) {
+                System.out.println("Выдаем игроку №" + k + " следующий набор карт:");
+                System.out.println(shuffledCards[cardPosition] + " " + shuffledCards[cardPosition + 1] + " " + shuffledCards[cardPosition + 2] + " " + shuffledCards[cardPosition + 3] + " " + shuffledCards[cardPosition + 4]);
+                cardPosition = cardPosition + 5;
+            }
         }
     }
+
+    // Напишите алгоритм, который определит, сколько слов было передано
+    // https://vertex-academy.com/tutorials/ru/kak-opredelit-kolichestvo-slov-v-stroke-java/
 }
