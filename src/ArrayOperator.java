@@ -103,4 +103,12 @@ public class ArrayOperator {
 
     // Напишите алгоритм, который определит, сколько слов было передано
     // https://vertex-academy.com/tutorials/ru/kak-opredelit-kolichestvo-slov-v-stroke-java/
+    public void getAllWordsFromPhrase(String phrase) {
+        String[] words = phrase.split(" ");
+        int total = words.length;
+        for (String word : words) {
+            System.out.println(word);
+        }
+        System.out.println("Итого слов: " + total);
+    }
 }
