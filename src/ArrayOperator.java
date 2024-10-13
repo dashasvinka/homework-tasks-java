@@ -1,4 +1,5 @@
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class ArrayOperator {
 
@@ -129,7 +130,7 @@ public class ArrayOperator {
     // LinkedList - Эффективные вставки и удаления
     // Создай LinkedList<Integer>. Добавь элементы в середину списка, удали первый и последний элемент, затем выведи обновленный список.
 
-    public void addElementInLinkedList () {
+    public void addElementInLinkedList() {
         LinkedList<Integer> startList = new LinkedList<>();
         for (int i = 1; i <= 10; i++) {
             startList.add(i);
@@ -177,10 +178,160 @@ public class ArrayOperator {
         while (!queueWithSuperHighPriority.isEmpty()) {
             System.out.println(queueWithSuperHighPriority.poll());
         }
-
-
-
-
     }
 
+    // Task 3. Map
+    // TreeMap - Сортировка по ключам
+    // Создай TreeMap<Long, String>. Добавь записи с неупорядоченными ключами, убедись в их автоматической сортировке и выведи содержимое карты
+    public void autoSortElementsByKey() {
+        TreeMap<Long, String> rainbowColors = new TreeMap<>();
+        rainbowColors.put(6L, "Сидит - синий");
+        rainbowColors.put(4L, "Знать - зеленый");
+        rainbowColors.put(1L, "Каждый - красный");
+        rainbowColors.put(3L, "Желает - желтый");
+        rainbowColors.put(7L, "Фазан - фиолетовый");
+        rainbowColors.put(5L, "Где - голубой");
+        rainbowColors.put(2L, "Охотник -оранжевый");
+        for (Long key : rainbowColors.keySet()) {
+            System.out.println(rainbowColors.get(key) + " у него ключ: " + key);
+        }
+    }
+
+    // Task 5. Deque
+    // ArrayDeque с фильтрацией
+    // Создай ArrayDeque<Boolean>. Добавь чередующиеся значения true и false, удали все элементы false с помощью итерации и выведи результат.
+    public void eliminateLies() {
+        ArrayDeque<Boolean> dequeWithTrueAndFalse = new ArrayDeque<>();
+        dequeWithTrueAndFalse.add(true);
+        dequeWithTrueAndFalse.add(true);
+        dequeWithTrueAndFalse.add(false);
+        dequeWithTrueAndFalse.add(false);
+        dequeWithTrueAndFalse.add(true);
+        dequeWithTrueAndFalse.add(false);
+        dequeWithTrueAndFalse.add(false);
+        dequeWithTrueAndFalse.add(false);
+        dequeWithTrueAndFalse.add(true);
+        dequeWithTrueAndFalse.add(false);
+        dequeWithTrueAndFalse.add(true);
+
+        Iterator<Boolean> iterator = dequeWithTrueAndFalse.iterator();
+        while (iterator.hasNext()) {
+            if (iterator.next() == false) {
+                iterator.remove();
+            }
+        }
+
+        System.out.println("Получаем только чистую правду: " + dequeWithTrueAndFalse);
+    }
+
+    // Task 6. Stack
+    // Stack - Полное очищение стека
+    // Создай Stack<Character>. Добавь символы, полностью очисти стек, затем проверь и выведи, пуст ли стек.
+
+    public void checkStackIsEmpty() {
+        Stack<Character> stackWithCharacter = new Stack<>();
+
+        stackWithCharacter.push('l');
+        stackWithCharacter.push('2');
+        stackWithCharacter.push('m');
+        stackWithCharacter.push('5');
+        stackWithCharacter.push(';');
+        stackWithCharacter.push('r');
+        stackWithCharacter.push('&');
+
+        while (!stackWithCharacter.isEmpty()) {
+            stackWithCharacter.pop();
+        }
+
+        if (stackWithCharacter.isEmpty()) {
+            System.out.println("Ура! Задание выполнено успешно - стек пуст");
+        } else {
+            System.out.println("Оу ноу! Что-то пошло не так... кажется в стеке остались элементы");
+        }
+    }
+
+    // Task 7. Iterable
+    // ArrayList и цикл for-each - Простая итерация
+    // Создай коллекцию ArrayList<String>. Используя цикл for-each, выведи все элементы коллекции на консоль.
+    public void getAllElementsFromList() {
+
+        ArrayList<String> menu = new ArrayList<>();
+        menu.add("Пицца");
+        menu.add("Бургер");
+        menu.add("Суши");
+        menu.add("Роллы");
+        menu.add("Суп");
+        menu.add("Салат");
+        menu.add("Паста");
+        menu.add("Бутерброд");
+
+        for (String dish : menu) {
+            System.out.println(dish);
+        }
+    }
+
+    // Task 8. Comparable и Comparator
+    // Custom Comparator для обратной сортировки
+    // Создай список LinkedList<Character>. Отсортируй символы в обратном алфавитном порядке с помощью Comparator и выведи на консоль.
+    public void customReverseSort() {
+        LinkedList<Character> charactersForSort = new LinkedList<>();
+
+        charactersForSort.add('K');
+        charactersForSort.add('L');
+        charactersForSort.add('N');
+        charactersForSort.add('Q');
+        charactersForSort.add('P');
+        charactersForSort.add('O');
+        charactersForSort.add('Y');
+        charactersForSort.add('T');
+
+        Collections.sort(charactersForSort, new Comparator<Character>() {
+            @Override
+            public int compare(Character Y, Character Z) {
+                return Z.compareTo(Y);
+            }
+        });
+
+        System.out.println("Отсортировали в обратном алфавитному порядке: " + charactersForSort);
+    }
+
+    // Task 9. Streams и Lambda
+    // Фильтрация с использованием потоков
+    // Создай ArrayList<Integer>. Используя потоки (streams), отфильтруй числа больше 5 и выведи их.
+    public void filteringWithStreams() {
+        ArrayList<Integer> streamWithInt = new ArrayList<>();
+
+        streamWithInt.add(2);
+        streamWithInt.add(16);
+        streamWithInt.add(5);
+        streamWithInt.add(6);
+        streamWithInt.add(1);
+        streamWithInt.add(4);
+        streamWithInt.add(10);
+        streamWithInt.add(3);
+
+        ArrayList<Integer> filterStreamWithInt = streamWithInt.stream().filter(n -> n > 5).collect(Collectors.toCollection(ArrayList::new));
+
+        System.out.println("Мы восхитительны, ведь мы получили коллекцию элементов, где все больше 5: " + filterStreamWithInt);
+    }
+
+    // Task 10. Другие коллекции
+    // EnumSet для работы с перечислениями
+    // Создай EnumSet<DayOfWeek>. Добавь несколько дней недели, выполни операции объединения и пересечения множеств и выведи результат.
+    public void getSubsetsOfDaysOfTheWeek() {
+        enum DayOfWeek {MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY}
+
+        EnumSet<DayOfWeek> workDays = EnumSet.of(DayOfWeek.MONDAY, DayOfWeek.TUESDAY, DayOfWeek.WEDNESDAY, DayOfWeek.THURSDAY, DayOfWeek.FRIDAY);
+        EnumSet<DayOfWeek> workOutDays = EnumSet.of(DayOfWeek.MONDAY, DayOfWeek.WEDNESDAY, DayOfWeek.FRIDAY, DayOfWeek.SATURDAY);
+        EnumSet<DayOfWeek> weekendDays = EnumSet.of(DayOfWeek.SATURDAY, DayOfWeek.SUNDAY);
+        EnumSet<DayOfWeek> studyDays = EnumSet.of(DayOfWeek.SATURDAY, DayOfWeek.SUNDAY, DayOfWeek.MONDAY);
+
+        Set<DayOfWeek> allWeekDays = EnumSet.copyOf(workDays);
+        allWeekDays.addAll(weekendDays);
+        System.out.println("Все дни недели: " + allWeekDays);
+
+        Set<DayOfWeek> workOutAndStudyDays = EnumSet.copyOf(workOutDays);
+        workOutAndStudyDays.retainAll(studyDays);
+        System.out.println("Дни недели, в которые я учусь и хожу на тренировку: " + workOutAndStudyDays);
+    }
 }

@@ -19,13 +19,13 @@ public class Main {
 
         // Задача 7 https://tproger.ru/articles/zadachi-po-java-dlya-nachinayushhih
         // Напишите программу, которая инвертирует массив (меняет порядок элементов на противоположный).
-        String[] seasons  = new String[] {"Winter", "Spring", "Summer", "Autumn"};
+        String[] seasons = new String[]{"Winter", "Spring", "Summer", "Autumn"};
         TechnicalOperator operator = new TechnicalOperator();
         operator.getFlipArray(seasons);
 
         // Напишите программу, которая меняет местами элементы одномерного массива из String в обратном порядке.
         ArrayOperator arrayOperator = new ArrayOperator();
-        String[] people  = new String[] {"Маша", "Паша", "Вика", "Лена", "Гена"};
+        String[] people = new String[]{"Маша", "Паша", "Вика", "Лена", "Гена"};
         arrayOperator.printFlipArray(people);
 
         // Программа получает число n и раздает карты на n игроков (по 5 карт каждому) из рассортированной колоды.
@@ -45,5 +45,26 @@ public class Main {
 
         // Создай PriorityQueue<Integer>. Добавь числа с различными приоритетами, затем извлеки и выведи элементы в порядке их приоритета.
         arrayOperator.getElementsBySuperHighPriority();
+
+        // Создай TreeMap<Long, String>. Добавь записи с неупорядоченными ключами, убедись в их автоматической сортировке и выведи содержимое карты
+        arrayOperator.autoSortElementsByKey();
+
+        // Создай ArrayDeque<Boolean>. Добавь чередующиеся значения true и false, удали все элементы false с помощью итерации и выведи результат.
+        arrayOperator.eliminateLies();
+
+        // Создай Stack<Character>. Добавь символы, полностью очисти стек, затем проверь и выведи, пуст ли стек.
+        arrayOperator.checkStackIsEmpty();
+
+        // Создай коллекцию ArrayList<String>. Используя цикл for-each, выведи все элементы коллекции на консоль.
+        arrayOperator.getAllElementsFromList();
+
+        // Создай список LinkedList<Character>. Отсортируй символы в обратном алфавитном порядке с помощью Comparator и выведи на консоль.
+        arrayOperator.customReverseSort();
+
+        // Создай ArrayList<Integer>. Используя потоки (streams), отфильтруй числа больше 5 и выведи их.
+        arrayOperator.filteringWithStreams();
+
+        // Создай EnumSet<DayOfWeek>. Добавь несколько дней недели, выполни операции объединения и пересечения множеств и выведи результат.
+        arrayOperator.getSubsetsOfDaysOfTheWeek();
     }
 }
