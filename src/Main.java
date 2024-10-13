@@ -33,5 +33,17 @@ public class Main {
 
         // Напишите алгоритм, который определит, сколько слов было передано
         arrayOperator.getAllWordsFromPhrase("Мама мыла раму рама мыла маму");
+
+        // Создай ArrayList<String>. Добавь 100 строковых элементов. Реализуй метод для быстрого получения элемента по заданному индексу и выведи его на консоль.
+        arrayOperator.getElementByIndex(100);
+
+        // Создай LinkedList<Integer>. Добавь элементы в середину списка, удали первый и последний элемент, затем выведи обновленный список.
+        arrayOperator.addElementInLinkedList();
+
+        // Создай TreeSet<String>. Добавь несколько строк, включая строки с разными регистрами, и выведи их в отсортированном порядке.
+        arrayOperator.sortElementsStructureTreeSet();
+
+        // Создай PriorityQueue<Integer>. Добавь числа с различными приоритетами, затем извлеки и выведи элементы в порядке их приоритета.
+        arrayOperator.getElementsBySuperHighPriority();
     }
 }

@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class ArrayOperator {
 
@@ -111,4 +108,79 @@ public class ArrayOperator {
         }
         System.out.println("Итого слов: " + total);
     }
+
+    // Task 1. List
+    // ArrayList - Быстрый доступ по индексу
+    // Создай ArrayList<String>. Добавь 100 строковых элементов. Реализуй метод для быстрого получения элемента по заданному индексу и выведи его на консоль.
+
+    public void getElementByIndex(int index) {
+        ArrayList<String> lotPosition = new ArrayList<>(100);
+        for (int i = 1; i <= 100; i++) {
+            lotPosition.add("Позиция " + i);
+        }
+        if ((index < 0) || (index >= 100)) {
+            System.out.println("Недопустимый индекс, индекс должен быть более 0 и менее 100");
+        } else {
+            System.out.println(lotPosition.get(index));
+        }
+    }
+
+    // Task 1. List
+    // LinkedList - Эффективные вставки и удаления
+    // Создай LinkedList<Integer>. Добавь элементы в середину списка, удали первый и последний элемент, затем выведи обновленный список.
+
+    public void addElementInLinkedList () {
+        LinkedList<Integer> startList = new LinkedList<>();
+        for (int i = 1; i <= 10; i++) {
+            startList.add(i);
+        }
+        System.out.println("Наш стартовый список: " + startList);
+        for (int a = 1; a <= 3; a++) {
+            startList.add(startList.size() / 2, a);
+        }
+        startList.removeFirst();
+        startList.removeLast();
+        System.out.println("Наш финальный список после манипуляций: " + startList);
+    }
+
+    // Task 2. Set
+    // TreeSet - Естественная сортировка и упорядочивание
+    // Создай TreeSet<String>. Добавь несколько строк, включая строки с разными регистрами, и выведи их в отсортированном порядке.
+
+    public void sortElementsStructureTreeSet() {
+        TreeSet<String> coffeeVibe = new TreeSet<>();
+        coffeeVibe.add("кофе");
+        coffeeVibe.add("кофетерия");
+        coffeeVibe.add("Кофемания");
+        coffeeVibe.add("кофеварка");
+        coffeeVibe.add("Сварщица");
+        coffeeVibe.add("yankeesierra");
+        coffeeVibe.add("Yankee Sierra");
+        coffeeVibe.add("Шоколадница");
+        for (String element : coffeeVibe) {
+            System.out.println(element);
+        }
+    }
+
+    // Task 4. Queue
+    // PriorityQueue - Очередь с приоритетами
+    // Создай PriorityQueue<Integer>. Добавь числа с различными приоритетами, затем извлеки и выведи элементы в порядке их приоритета.
+    public void getElementsBySuperHighPriority() {
+        PriorityQueue<Integer> queueWithSuperHighPriority = new PriorityQueue<>(Comparator.reverseOrder());
+        queueWithSuperHighPriority.add(19);
+        queueWithSuperHighPriority.add(0);
+        queueWithSuperHighPriority.add(78);
+        queueWithSuperHighPriority.add(22);
+        queueWithSuperHighPriority.add(56);
+        queueWithSuperHighPriority.add(115);
+        queueWithSuperHighPriority.add(5);
+        while (!queueWithSuperHighPriority.isEmpty()) {
+            System.out.println(queueWithSuperHighPriority.poll());
+        }
+
+
+
+
+    }
+
 }
