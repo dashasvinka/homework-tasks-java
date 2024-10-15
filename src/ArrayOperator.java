@@ -334,4 +334,116 @@ public class ArrayOperator {
         workOutAndStudyDays.retainAll(studyDays);
         System.out.println("Дни недели, в которые я учусь и хожу на тренировку: " + workOutAndStudyDays);
     }
+
+    // Task 2. Set
+    // TreeSet - LinkedHashSet - Сохранение порядка вставки
+    // Создай LinkedHashSet<Character>. Добавь символы в определённом порядке, включая повторяющиеся, и выведи множество, показывая сохранённый порядок без дубликатов.
+    public void printSaveCharacter() {
+        Set<Character> letters = new LinkedHashSet<>();
+        letters.add('y');
+        letters.add('k');
+        letters.add('p');
+        letters.add('y');
+        letters.add('m');
+        letters.add('l');
+        letters.add('k');
+        letters.add('z');
+        letters.add('o');
+        System.out.println("Выводим список без дубликатов: " + letters);
+    }
+
+    // Task 3. Map
+    // LinkedHashMap - Предсказуемый порядок итерации
+    // Создай LinkedHashMap<Character, Boolean>. Добавь записи в определённом порядке, обнови некоторые значения и выведи карту, демонстрируя порядок вставки.
+    public void printSaveLinkedHashMapCharacter() {
+        Map<Character, Boolean> trueLetters = new LinkedHashMap<>();
+
+        trueLetters.put('y', false);
+        trueLetters.put('k', true);
+        trueLetters.put('p', true);
+        trueLetters.put('m', false);
+        trueLetters.put('l', true);
+        trueLetters.put('o', true);
+        trueLetters.put('z', false);
+        System.out.println("Выводим список до изменения: " + trueLetters);
+
+        trueLetters.put('y', true);
+        trueLetters.put('k', false);
+        System.out.println("Выводим список после изменения: " + trueLetters);
+    }
+
+    // Task 4. Queue
+    // LinkedList как очередь - Двунаправленная очередь
+    // Создай LinkedList<String> и используй её как очередь. Добавь элементы, извлеки первый и последний элементы, затем выведи оставшуюся очередь.
+    public void printDuoQueue() {
+        List<String> visitors = new LinkedList<>();
+        for (int i = 1; i <= 11; i++) {
+            visitors.add("Пациент " + i);
+        }
+        System.out.println("Очередь до начала приема первого с начала и с конца: " + visitors);
+        int queue = visitors.size();
+        int lastPatient = queue - 1;
+        visitors.remove(lastPatient);
+        visitors.remove(0);
+        System.out.println("Очередь после приема первого и последнего пациентов: " + visitors);
+    }
+
+    // Task 4. Queue
+    // ArrayDeque - Высокопроизводительная двусторонняя очередь
+    // Создай ArrayDeque<Character>. Добавь символы в начало и конец дека, удали элементы с обеих сторон и выведи оставшиеся символы.
+    public void printHighPerformanceTwoWayQueue() {
+        ArrayDeque<Character> letters = new ArrayDeque<>();
+
+        letters.addFirst('l');
+        letters.addLast('r');
+        letters.addFirst('t');
+        letters.addLast('k');
+        letters.addLast('m');
+        letters.addFirst('p');
+
+        System.out.println("Добавили в очередь по несколько символов в начало и в конец: " + letters);
+
+        letters.removeFirst();
+        letters.removeLast();
+
+        System.out.println("Удалили из очереди первый и последний элемент: " + letters);
+    }
+
+    // Task 5. Deque
+    // ArrayDeque - Эффективные операции добавления и удаления с обоих концов
+    // Создай ArrayDeque<String>. Добавь элементы в обе части дека, удали первый и последний элементы и выведи оставшиеся элементы.
+    public void printVegetableArrayDequeString() {
+        ArrayDeque<String> vegetablePlate = new ArrayDeque<>();
+        vegetablePlate.addFirst("огурец");
+        vegetablePlate.addLast("помидор");
+        vegetablePlate.addFirst("перец");
+        vegetablePlate.addLast("морковка");
+        vegetablePlate.addFirst("сельдерей");
+        vegetablePlate.addLast("зелень");
+        vegetablePlate.addFirst("редис");
+        vegetablePlate.addLast("капуста");
+        System.out.println("Наполнили салатную тарелку с разных краев : " + vegetablePlate);
+
+        vegetablePlate.removeFirst();
+        vegetablePlate.removeLast();
+        System.out.println("Съели крайние овощи : " + vegetablePlate);
+    }
+
+    // Task 5. Deque
+    // LinkedList как Deque - Гибкость реализации
+    // Создай LinkedList<Long> и используй её как дек. Добавь несколько элементов с обеих сторон, получи элемент по индексу и выведи его.
+    public void printLinkedListLong() {
+        LinkedList<Long> fatigueLevel = new LinkedList<>();
+        fatigueLevel.addFirst(1L);
+        fatigueLevel.addLast(2L);
+        fatigueLevel.addFirst(3L);
+        fatigueLevel.addLast(4L);
+        fatigueLevel.addLast(5L);
+        fatigueLevel.addLast(6L);
+        fatigueLevel.addLast(7L);
+        System.out.println("Градации усталости: " + fatigueLevel);
+
+        Long actualFatigue = fatigueLevel.get(3);
+        System.out.println("Я где-то устал на четверочку: " + actualFatigue);
+    }
 }

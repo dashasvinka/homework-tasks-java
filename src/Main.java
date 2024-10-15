@@ -66,5 +66,23 @@ public class Main {
 
         // Создай EnumSet<DayOfWeek>. Добавь несколько дней недели, выполни операции объединения и пересечения множеств и выведи результат.
         arrayOperator.getSubsetsOfDaysOfTheWeek();
+
+        // Создай LinkedHashSet<Character>. Добавь символы в определённом порядке, включая повторяющиеся, и выведи множество, показывая сохранённый порядок без дубликатов.
+        arrayOperator.printSaveCharacter();
+
+        // Создай LinkedHashMap<Character, Boolean>. Добавь записи в определённом порядке, обнови некоторые значения и выведи карту, демонстрируя порядок вставки.
+        arrayOperator.printSaveLinkedHashMapCharacter();
+
+        // Создай LinkedList<String> и используй её как очередь. Добавь элементы, извлеки первый и последний элементы, затем выведи оставшуюся очередь.
+        arrayOperator.printDuoQueue();
+
+        // Создай ArrayDeque<Character>. Добавь символы в начало и конец дека, удали элементы с обеих сторон и выведи оставшиеся символы.
+        arrayOperator.printHighPerformanceTwoWayQueue();
+
+        // Создай ArrayDeque<String>. Добавь элементы в обе части дека, удали первый и последний элементы и выведи оставшиеся элементы.
+        arrayOperator.printVegetableArrayDequeString();
+
+        // Создай LinkedList<Long> и используй её как дек. Добавь несколько элементов с обеих сторон, получи элемент по индексу и выведи его.
+        arrayOperator.printLinkedListLong();
     }
 }
