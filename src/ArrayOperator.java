@@ -446,4 +446,17 @@ public class ArrayOperator {
         Long actualFatigue = fatigueLevel.get(3);
         System.out.println("Я где-то устал на четверочку: " + actualFatigue);
     }
+
+    // Задача: По данной строке определите, является ли она палиндромом
+    // Верно ли, что она одинаково читается слева направо и справа налево
+    public static Boolean checkIsPalindrome(String valueToCheck) {
+        String valueWithOutSpace =  valueToCheck.replace(" ", "");
+        int valueSize = valueWithOutSpace.length();
+//        char[] charArray = new char[valueSize];
+        for (int i = 0; i < valueSize; i++) {
+            char charFromPhrase = valueWithOutSpace.charAt(valueSize - i - 1);
+
+        }
+        return false;
+    }
 }
