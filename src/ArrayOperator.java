@@ -447,16 +447,64 @@ public class ArrayOperator {
         System.out.println("Я где-то устал на четверочку: " + actualFatigue);
     }
 
-    // Задача: По данной строке определите, является ли она палиндромом
+    // Задача: По переданной строке определите, является ли она палиндромом
     // Верно ли, что она одинаково читается слева направо и справа налево
-    public static Boolean checkIsPalindrome(String valueToCheck) {
-        String valueWithOutSpace =  valueToCheck.replace(" ", "");
-        int valueSize = valueWithOutSpace.length();
-//        char[] charArray = new char[valueSize];
+    // Версия 1
+    public static Boolean checkIsPalindromeFirstVersion(String valueToCheck) {
+        String valueToCheckWithOutSpace = valueToCheck.replace(" ", "");
+        String valueToCheckWithOutSpaceAndLowerCase = valueToCheckWithOutSpace.toLowerCase();
+        String valueToCheckWithOutSpaceAndPunctuationMarksLowerCase = valueToCheckWithOutSpaceAndLowerCase.replaceAll("[\\p{P}-]", "");
+        int valueSize = valueToCheckWithOutSpaceAndPunctuationMarksLowerCase.length();
+        String resultToCheck = "";
         for (int i = 0; i < valueSize; i++) {
-            char charFromPhrase = valueWithOutSpace.charAt(valueSize - i - 1);
-
+            char charFromPhrase = valueToCheckWithOutSpaceAndPunctuationMarksLowerCase.charAt(valueSize - i - 1);
+            resultToCheck =  resultToCheck + charFromPhrase;
+            System.out.println(resultToCheck);
         }
-        return false;
+        if (resultToCheck.equals(valueToCheckWithOutSpaceAndPunctuationMarksLowerCase)) {
+            System.out.println("строки одинаковые");
+            return true;
+        } else {
+            System.out.println("строки разные");
+            return false;
+        }
+    }
+
+    // Задача: По переданной строке определите, является ли она палиндромом
+    // Верно ли, что она одинаково читается слева направо и справа налево
+    // Версия 2
+    public static Boolean checkIsPalindromeSecondVersion(String valueToCheck) {
+
+        String cleanedValue = valueToCheck.replace(" ", "").toLowerCase().replaceAll("[\\p{P}]", "");
+        StringBuilder reversedValue = new StringBuilder(cleanedValue).reverse();
+        if (cleanedValue.contentEquals(reversedValue)) {
+            System.out.println("строки одинаковые");
+            return true;
+        } else {
+            System.out.println("строки разные");
+            return false;
+        }
+    }
+
+    // Задача: По переданной строке определите, является ли она палиндромом
+    // Верно ли, что она одинаково читается слева направо и справа налево
+    // Версия 3
+    public static Boolean checkIsPalindromeThirdVersion(String valueToCheck) {
+        String cleanedValue = valueToCheck.replace(" ", "").toLowerCase().replaceAll("[\\p{P}]", "");
+
+        int left = 0;
+        int right = cleanedValue.length() - 1;
+
+        while (left < right) {
+            if (cleanedValue.charAt(left) != cleanedValue.charAt(right)) {
+                System.out.println("строки разные");
+                return false;
+            }
+            left++;
+            right--;
+        }
+
+        System.out.println("строки одинаковые");
+        return true;
     }
 }
