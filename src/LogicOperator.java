@@ -3,6 +3,16 @@ public class LogicOperator {
 //    Поиск суммы элементов массива
 //    Задача: Напишите функцию, которая принимает массив чисел и возвращает сумму его элементов.
 
+    public Integer getArraySumOfElements(Integer[] numbers){
+        int counter = numbers.length;
+        int result = 0;
+        for(int k = 0; k < counter; k++){
+            result = result + numbers[k];
+        }
+        System.out.println("Сумма элементов переданного массива " + result);
+        return result;
+    };
+
 //    Проверка палиндрома
 //    Задача: Напишите функцию, которая принимает строку и возвращает true, если строка является палиндромом, и false в противном случае.
 

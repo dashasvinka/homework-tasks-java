@@ -96,5 +96,11 @@ public class Main {
         // Задача: По переданной строке определите, является ли она палиндромом
         // Версия 3
         ArrayOperator.checkIsPalindromeThirdVersion("Надежда нам бог, обман. Ад же дан.");
+
+        // Задача: Напишите функцию, которая принимает массив чисел и возвращает сумму его элементов.
+        // Версия 1
+        LogicOperator logicOperator = new LogicOperator();
+        Integer[] arrInt = new Integer[]{-1, 0, 12, -14, 5};
+        logicOperator.getArraySumOfElements(arrInt);
     }
 }
