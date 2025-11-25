@@ -19,6 +19,15 @@ public class LogicOperator {
 //    Факториал числа
 //    Задача: Напишите функцию, которая вычисляет факториал заданного числа.
 
+    public Integer getFactorial(Integer num){
+        int result = 1;
+        for(int k = num; k != 0; k--){
+            result = result * k;
+        }
+        System.out.println("Факториал " + num + " равен " + result);
+        return result;
+    };
+
 //    Фибоначчиева последовательность
 //    Задача: Напишите функцию, которая принимает число n и возвращает n-ый элемент последовательности Фибоначчи.
 

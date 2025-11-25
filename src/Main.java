@@ -102,5 +102,9 @@ public class Main {
         LogicOperator logicOperator = new LogicOperator();
         Integer[] arrInt = new Integer[]{-1, 0, 12, -14, 5};
         logicOperator.getArraySumOfElements(arrInt);
+
+        // Факториал числа
+        // Задача: Напишите функцию, которая вычисляет факториал заданного числа.
+        logicOperator.getFactorial(6);
     }
 }
