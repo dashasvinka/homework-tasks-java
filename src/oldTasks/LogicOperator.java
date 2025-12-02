@@ -1,3 +1,5 @@
+package oldTasks;
+
 public class LogicOperator {
 
    //    Поиск суммы элементов массива
