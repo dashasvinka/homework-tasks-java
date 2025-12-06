@@ -225,7 +225,7 @@ public class StringTasks {
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    // Задача 7: Удаление дубликатов символов
+    // Задача 8: Удаление дубликатов символов
     // Удали повторяющиеся символы в строке, оставив только первое вхождение каждого символа.
     // Пример:
     // "banana" → "ban"
@@ -235,15 +235,168 @@ public class StringTasks {
     // и добавляем в стринг билдер
     // - возвращаем новую строку
 
-    public static String removeDuplicates(String str){
+    public static String removeDuplicates(String str) {
+        if (str.trim().replaceAll("\\s+", "").isEmpty() || str == null)
+            return "Строка должна быть не пуста и содержать символы";
         StringBuilder stringBuilder = new StringBuilder();
         HashMap<Character, Integer> dict = new HashMap<>();
-        for (Character chr : str.toCharArray()){
-            if (!dict.containsKey(chr)){
+        for (Character chr : str.trim().replaceAll("\\s+", "").toCharArray()) {
+            if (!dict.containsKey(chr)) {
                 dict.put(chr, 1);
                 stringBuilder.append(chr.toString());
             }
         }
         return stringBuilder.toString();
     }
+
+    // Тестирование:
+    // StringTasks stringTasks = new StringTasks();
+    // System.out.println(stringTasks.removeDuplicates("banana"));
+    // System.out.println(stringTasks.removeDuplicates("    "));
+    // System.out.println(stringTasks.removeDuplicates(""));
+    // System.out.println(stringTasks.removeDuplicates("djdjdjshqkwdl2jj3j!"));
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    // Задача 9: Максимально часто встречающийся символ
+    // Верни символ, который встречается в строке чаще всего. Если таких несколько — верни любой из них.
+    // Пример:
+    // "abcccccddee" → 'c'
+    // Алгоритм:
+    // - не пустая и не null нету пробелов или что с ними
+    // - превращаем все в массив посимволно идем создаем перед этим хешмап и стринг билдер если не контейн записываем
+    // и добавляем в стринг билдер
+    // - возвращаем новую строку
+    public static Character getMostFrequentlyChar(String str) {
+        if (str == null || str.isEmpty()) {
+            throw new IllegalArgumentException("Недопустимая строка!");
+        } else {
+
+            int[] freq = new int[256];
+
+            for (char c : str.toCharArray()) {
+                freq[c]++;
+            }
+
+            int maxCount = 0;
+            char maxChar = str.charAt(0);
+
+            for (char c : str.toCharArray()) {
+                if (freq[c] > maxCount) {
+                    maxCount = freq[c];
+                    maxChar = c;
+                }
+            }
+            return maxChar;
+        }
+    }
+
+    // Тестирование:
+    // StringTasks stringTasks = new StringTasks();
+    // System.out.println(stringTasks.getMostFrequentlyChar("banana"));
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    // Задача 10: Является ли строка перестановкой палиндрома
+    // Проверь, можно ли переставить символы строки так, чтобы получился палиндром.
+    // Пример:
+    // "civic" → true
+    // "ivicc" → true
+    // "hello" → false
+    // Алгоритм:
+    // - если длина строки четная, каждый символ должен встречаться чётное количество раз
+    // - если длина строки нечетная, ровно один символ может встречаться нечётное число раз, чтобы он был в середине
+    // (1) считаем частоты для всех символов
+    // (2) считаем, сколько нечетных
+    // (3) если нечетных более 1 символа, тогда нельзя составить палиндром
+    public static boolean canPermutePalindrome(String s) {
+        if (s == null || s.isEmpty()) return false;
+
+        int[] freq = new int[256];
+        for (char c : s.toCharArray()) {
+            freq[c]++;
+        }
+
+        int oddCount = 0;
+        for (int count : freq) {
+            if (count % 2 != 0) {
+                oddCount++;
+            }
+        }
+
+        return oddCount <= 1;
+    }
+
+    // Тестирование:
+    // StringTasks stringTasks = new StringTasks();
+    // System.out.println(stringTasks.canPermutePalindrome("banana"));
+    // System.out.println(stringTasks.canPermutePalindrome("civic"));
+    // System.out.println(stringTasks.canPermutePalindrome("ivicc"));
+    // System.out.println(stringTasks.canPermutePalindrome("hello"));
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    // Задача 11: Сравнение строк с учетом бэкспейсов
+    // Сравни две строки с символами '#', которые означают "удалить предыдущий символ". Верни, одинаковы ли строки после обработки.
+    // Пример:
+    // "ab#c" и "ad#c" → true
+    // "a#c" и "b" → false
+    // Алгоритм:
+    // - выстраиваем обе строки перебирая посимвольно массив, если встречаем # удаляем предыдущий добавленный
+    // - сравниваем две строки через equals()
+
+    public static boolean backspaceCompare(String s, String t) {
+        return build(s).equals(build(t));
+    }
+
+    private static String build(String str) {
+        StringBuilder sb = new StringBuilder();
+
+        for (char c : str.toCharArray()) {
+            if (c == '#') {
+                if (sb.length() > 0) sb.deleteCharAt(sb.length() - 1);
+            } else {
+                sb.append(c);
+            }
+        }
+
+        return sb.toString();
+    }
+
+    // Тестирование:
+    // StringTasks stringTasks = new StringTasks();
+    // System.out.println(stringTasks.backspaceCompare("ab#c", "ad#c"));
+    // System.out.println(stringTasks.backspaceCompare("a#c", "b"));
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+    // Задача 12: Повторяющиеся символы подряд
+    // Сожми строку, заменив группы одинаковых символов подряд на один символ + количество.
+    // Пример:
+    // aabcccccaaa" → "a2b1c5a3"
+    // если сжатая строка не короче — верни оригинал.
+
+    public static String compressString(String s) {
+        if (s == null || s.length() < 2) return s;
+
+        StringBuilder sb = new StringBuilder();
+        int count = 1;
+
+        for (int i = 1; i < s.length(); i++) {
+            if (s.charAt(i) == s.charAt(i - 1)) {
+                count++;
+            } else {
+                sb.append(s.charAt(i - 1)).append(count);
+                count = 1;
+            }
+        }
+
+        sb.append(s.charAt(s.length() - 1)).append(count);
+        return sb.length() < s.length() ? sb.toString() : s;
+    }
+
+    // Тестирование:
+    // StringTasks stringTasks = new StringTasks();
+    // System.out.println(stringTasks.compressString("aabcccccaaa"));
 }
